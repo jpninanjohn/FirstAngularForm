@@ -11,12 +11,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var AppComponent = (function () {
     function AppComponent() {
+        this.message = 'Hello';
+        this.users = [
+            { id: 25, name: 'Ninan', username: 'jpninanjohn' },
+            { id: 26, name: 'Leo', username: 'leoOrion' },
+            { id: 34, name: 'Orion', username: 'lionHunter' }
+        ];
     }
+    AppComponent.prototype.selectUser = function (user) {
+        this.activeUser = user;
+        console.log(this.activeUser);
+    };
+    AppComponent.prototype.onUserCreated = function (event) {
+        this.users.push(event.user);
+    };
+    AppComponent.prototype.onUserDeleted = function (event) {
+        var index = this.users.indexOf(this.activeUser);
+        this.users.splice(index, 1);
+        this.activeUser = false;
+    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "\n    <div class=\"jumbotron\">\n      <h1>Welcome</h1>\n    </div>\n  ",
-            styles: ["\n      .jumbotron{\n        box-shadow: 0 2px 0 rgba(1,1,1,0.2);\n      }\n  "]
+            templateUrl: './app/app.component.html',
+            styleUrls: ['./app/app.component.css']
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

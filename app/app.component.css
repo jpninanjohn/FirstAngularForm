@@ -1,0 +1,16 @@
+.users-list li{
+    cursor: pointer;
+}
+
+.jumbotron .glyphicon {
+    font-size:80px;
+}
+
+.float-right{
+  margin: 10px;
+  float:right;
+}
+
+.auto-height{
+  height: auto;
+}
